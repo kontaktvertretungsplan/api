@@ -29,7 +29,7 @@ $CLASSES = [
 // Anmerkungen
 $NOTICES = [
 	"Klausurenphase: Bitte Ruhe in den Pausen",
-	"Schulleitung heute abesend",
+	"Schulleitung heute abwesend",
 	"Klasse 6d auf Klassenfahrt",
 	"Heute gibts Kuchen in der Pause",
 	
@@ -103,7 +103,7 @@ for($lesson = 1; $lesson <= 6; $lesson++) {
 		$out["plan"][$lesson][$class][$subject] = [
 			"lesson-id" => $class."/".$subject,
 			"lesson" => $subject,
-			"teacher-id" => substr(strtoupper($teacher), 4),
+			"teacher-id" => substr(strtoupper($teacher), 0, 4),
 			"teacher" => $teacher,
 			"room-id" => $room,
 			"room" => $room,
