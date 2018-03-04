@@ -103,7 +103,7 @@ for($lesson = 1; $lesson <= 6; $lesson++) {
 		$out["plan"][$lesson][$class][$subject] = [
 			"lesson-id" => $class."/".$subject,
 			"lesson" => $subject,
-			"teacher-id" => substr(strtoupper($teacher), 4);
+			"teacher-id" => substr(strtoupper($teacher), 4),
 			"teacher" => $teacher,
 			"room-id" => $room,
 			"room" => $room,
