@@ -140,13 +140,24 @@ if($cmd == "plan") {
 		];
 	}
 	
-	
-	
 	echo json_encode($out);
 }
 elseif($cmd == 'class') {
 	
 }
 else {
-	
+	echo json_encode(
+		[
+			"ok" => false,
+			"info" => [
+				"api" => [
+					"version" => "1",
+				],
+			],
+			"error" => [
+				"code" => "bad-cmd",
+				"description" => "Ungültiger Befehl",
+			],
+		];
+	);
 }
