@@ -18,12 +18,18 @@ Besipiel Stundenplan Generator zum testen
 
 // Klassen
 $CLASSES = [
-	"5",
-	"6",
-	"7",
-	"8",
-	"9",
-	"10",
+	"5a",
+	"5b",
+	"6a",
+	"6b",
+	"7a",
+	"7b",
+	"8a",
+	"8b",
+	"9a",
+	"9b",
+	"10a",
+	"10b",
 ];
 
 // Anmerkungen
