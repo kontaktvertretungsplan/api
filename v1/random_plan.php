@@ -35,6 +35,31 @@ $NOTICES = [
 	
 ];
 
+// Fach
+function randomSubject() {
+    $characters = 'abcdefghijklmnopqrstuvwxyz';
+    $randomString = '';
+    for ($i = 0; $i < 2; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return strtoupper($randomString);
+}
+
+// Lehrer
+function randomTeacher() {
+    $characters = 'abcdefghijklmnopqrstuvwxyz';
+    $randomString = '';
+    for ($i = 0; $i < rand(4, 8); $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return ucfirst(strtolower($randomString));
+}
+
+// Räume
+function randomRoom() {
+	return str_pad(rand(1, 300), 3, "0", STR_PAD_LEFT);
+}
+
 
 
 // Inputs
@@ -70,11 +95,23 @@ $out["result"]["date"] = [
 ];
 
 // Stundenplan Inhalte
-/*for($lesson = 1; $lesson <= 6; $lesson++) {
+for($lesson = 1; $lesson <= 6; $lesson++) {
 	foreach($CLASSES as $class) {
-		
+		$subject = randomSubject();
+		$teacher = randomTeacher();
+		$room = randomRoom();
+		$out["plan"][$lesson][$class][$subject] = [
+			"lesson-id" => $class."/".$subject,
+			"lesson" => $subject,
+			"teacher-id" => substr(strtoupper($teacher), 4);
+			"teacher" => $teacher,
+			"room-id" => $room,
+			"room" => $room,
+			"status" => "ok",
+			"note" => "",
+		];
 	}
-}*/
+}
 
 // Anmerkungen
 $notice = [];
