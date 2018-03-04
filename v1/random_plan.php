@@ -67,75 +67,86 @@ function randomRoom() {
 }
 
 
-
-// Inputs
-$year = $_GET['year'];
-$month = $_GET['month'];
-$day = $_GET['day'];
-
-
-
-// Ausgabevariable
-$out = [];
-
-// Systemstatus
-$out["ok"] = true;
-
-// Systeminfo
-$out["info"] = [
-	"api" => [
-		"version" => "1",	
-	],
-];
-
-// Inhalte
-
-// Stundenplanstatus
-$out["result"]["status"] = "ok";
-
-// Datum
-$out["result"]["date"] = [
-	"year" => $year,
-	"month" => $month,
-	"day" => $day,
-];
-
-// Stundenplan Inhalte
-for($lesson = 1; $lesson <= 6; $lesson++) {
-	foreach($CLASSES as $class) {
-		$subject = randomSubject();
-		$teacher = randomTeacher();
-		$room = randomRoom();
-		$out["plan"][$lesson][$class][$subject] = [
-			"lesson-id" => $class."/".$subject,
-			"lesson" => $subject,
-			"teacher-id" => substr(strtoupper($teacher), 0, 4),
-			"teacher" => $teacher,
-			"room-id" => $room,
-			"room" => $room,
-			"status" => "ok",
-			"note" => "",
-		];
-	}
-}
-
-// Anmerkungen
-$notice = [];
-for($n = 0; $n <= rand(0, round((count($NOTICES)-1)/2)); $n++) {
-	while(!isset($notice[$n])) {
-		$n = rand(0, count($NOTICES)-1);
-		if(!in_array($NOTICES[$n], $notice)) {
-			$notice[] = $NOTICES[$n];
-		}
-	}
-}
-
-foreach($notice as $n => $note) {
-	$out["note"][$n] = [
-		"0" => $note,
-	];
-}
+$cmd = $_GET["cmd"];
 
 header("Content-Type: application/json");
 
-echo json_encode($out);
+if($cmd == "plan") {
+	// Inputs
+	$year = $_GET['year'];
+	$month = $_GET['month'];
+	$day = $_GET['day'];
+	
+	
+	
+	// Ausgabevariable
+	$out = [];
+	
+	// Systemstatus
+	$out["ok"] = true;
+	
+	// Systeminfo
+	$out["info"] = [
+		"api" => [
+			"version" => "1",	
+		],
+	];
+	
+	// Inhalte
+	
+	// Stundenplanstatus
+	$out["result"]["status"] = "ok";
+	
+	// Datum
+	$out["result"]["date"] = [
+		"year" => $year,
+		"month" => $month,
+		"day" => $day,
+	];
+	
+	// Stundenplan Inhalte
+	for($lesson = 1; $lesson <= 6; $lesson++) {
+		foreach($CLASSES as $class) {
+			$subject = randomSubject();
+			$teacher = randomTeacher();
+			$room = randomRoom();
+			$out["plan"][$lesson][$class][$subject] = [
+				"lesson-id" => $class."/".$subject,
+				"lesson" => $subject,
+				"teacher-id" => substr(strtoupper($teacher), 0, 4),
+				"teacher" => $teacher,
+				"room-id" => $room,
+				"room" => $room,
+				"status" => "ok",
+				"note" => "",
+			];
+		}
+	}
+	
+	// Anmerkungen
+	$notice = [];
+	for($n = 0; $n <= rand(0, round((count($NOTICES)-1)/2)); $n++) {
+		while(!isset($notice[$n])) {
+			$n = rand(0, count($NOTICES)-1);
+			if(!in_array($NOTICES[$n], $notice)) {
+				$notice[] = $NOTICES[$n];
+			}
+		}
+	}
+	
+	foreach($notice as $n => $note) {
+		$out["note"][$n] = [
+			"0" => $note,
+		];
+	}
+	
+	
+	
+	echo json_encode($out);
+}
+elseif($cmd == 'class') {
+	
+}
+else {
+	
+}

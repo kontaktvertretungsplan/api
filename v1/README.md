@@ -86,3 +86,94 @@ Diese definieren den gewünschten Tag, für den der Stundenplan abgerufen werden
   }
 }
 ```
+
+## Klassen API
+
+### Beispiel Antwort
+
+```
+{
+  "ok": true,
+  "result": {
+    "status": "ok",
+    "date": {
+      "year": "2018",
+      "month": "03",
+      "day": "02"
+    },
+    "classes": [
+      {
+        "name": "5a"
+      },
+      {
+        "name": "5b"
+      },
+      {
+        "name": "6a"
+      },
+      {
+        "name": "6b"
+      },
+      {
+        "name": "7a"
+      },
+      {
+        "name": "7b"
+      },
+      {
+        "name": "8a"
+      },
+      {
+        "name": "8b"
+      },
+      {
+        "name": "9a"
+      },
+      {
+        "name": "9b"
+      },
+      {
+        "name": "9c"
+      },
+      {
+        "name": "10a"
+      },
+      {
+        "name": "10b"
+      },
+      {
+        "name": "11a",
+        "courses": [
+          "de",
+          "ma",
+          "eng",
+        ]
+      },
+      {
+        "name": "11b",
+        "courses": [
+          "de",
+          "ma",
+          "eng",
+        ]
+      },
+      {
+        "name": "12a",
+        "courses": [
+          "de",
+          "ma",
+          "eng",
+        ]
+      },
+      {
+        "name": "12b",
+        "courses": [
+          "de",
+          "ma",
+          "eng",
+        ]
+      }
+    ]
+  }
+}
+```
