@@ -18,18 +18,24 @@ Besipiel Stundenplan Generator zum testen
 
 // Klassen
 $CLASSES = [
-	"5a",
-	"5b",
-	"6a",
-	"6b",
-	"7a",
-	"7b",
-	"8a",
-	"8b",
-	"9a",
-	"9b",
-	"10a",
-	"10b",
+	"5a" => [],
+	"5b" => [],
+	"6a" => [],
+	"6b" => [],
+	"7a" => [],
+	"7b" => [],
+	"8a" => [],
+	"8b" => [],
+	"9a" => [],
+	"9b" => [],
+	"10a" => [
+		"de1",
+		"de2",
+	],
+	"10b" => [
+		"de1",
+		"de2",
+	],
 ];
 
 // Anmerkungen
@@ -106,7 +112,7 @@ if($cmd == "plan") {
 	
 	// Stundenplan Inhalte
 	for($lesson = 1; $lesson <= 6; $lesson++) {
-		foreach($CLASSES as $class) {
+		foreach($CLASSES as $class => $courses) {
 			$subject = randomSubject();
 			$teacher = randomTeacher();
 			$room = randomRoom();
@@ -144,6 +150,30 @@ if($cmd == "plan") {
 }
 elseif($cmd == 'class') {
 	
+	$out_classes = [];
+	
+	foreach($CLASSES as $class => $courses) {
+		
+		$out_classes[] = [
+			"name" => $class,
+			"courses" => $courses,
+		];
+	}
+	
+	echo json_encode(
+		[
+			"ok" => true,
+			"result" => [
+				"status" => "ok",
+				"date" => [
+					"year" => date("Y"),
+					"month" => date("m"),
+					"day" => date("d"),
+				],
+				"classes" => $out_classes,
+			],
+		]
+	);
 }
 else {
 	echo json_encode(
@@ -158,6 +188,6 @@ else {
 				"code" => "bad-cmd",
 				"description" => "Ungültiger Befehl",
 			],
-		];
+		]
 	);
 }
