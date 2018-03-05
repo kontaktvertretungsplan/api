@@ -38,6 +38,7 @@ $CLASSES = [
 	],
 ];
 
+
 // Anmerkungen
 $NOTICES = [
 	"Klausurenphase: Bitte Ruhe in den Pausen",
@@ -116,7 +117,7 @@ if($cmd == "plan") {
 			$subject = randomSubject();
 			$teacher = randomTeacher();
 			$room = randomRoom();
-			$out["plan"][$lesson][$class][$subject] = [
+			$out["result"]["plan"][$lesson][$class][$subject] = [
 				"lesson-id" => $class."/".$subject,
 				"lesson" => $subject,
 				"teacher-id" => substr(strtoupper($teacher), 0, 4),
@@ -141,7 +142,7 @@ if($cmd == "plan") {
 	}
 	
 	foreach($notice as $n => $note) {
-		$out["note"][$n] = [
+		$out["result"]["note"][$n] = [
 			"0" => $note,
 		];
 	}
