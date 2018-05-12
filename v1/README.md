@@ -63,7 +63,7 @@ Diese definieren den gewünschten Tag, für den der Stundenplan abgerufen werden
             "note": ""
           }
         }
-      }
+      },
       "2": {
         "10b": {
           "bi": {
@@ -146,7 +146,7 @@ Diese definieren den gewünschten Tag, für den der Stundenplan abgerufen werden
         "courses": [
           "de",
           "ma",
-          "eng",
+          "eng"
         ]
       },
       {
@@ -154,7 +154,7 @@ Diese definieren den gewünschten Tag, für den der Stundenplan abgerufen werden
         "courses": [
           "de",
           "ma",
-          "eng",
+          "eng"
         ]
       },
       {
@@ -162,7 +162,7 @@ Diese definieren den gewünschten Tag, für den der Stundenplan abgerufen werden
         "courses": [
           "de",
           "ma",
-          "eng",
+          "eng"
         ]
       },
       {
@@ -170,7 +170,7 @@ Diese definieren den gewünschten Tag, für den der Stundenplan abgerufen werden
         "courses": [
           "de",
           "ma",
-          "eng",
+          "eng"
         ]
       }
     ]
